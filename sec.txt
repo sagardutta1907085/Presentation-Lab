@@ -1,0 +1,43 @@
+import java.math.BigInteger;  
+ class BigIntegerExample1 {  
+    public static void main(String args[]) throws Exception {  
+        // Initialize result  
+        BigInteger p = new BigInteger("656692050181897513638241554199181923922955921760928836766304161790553989228223793461834703506872747071705167995972707253940099469869516422893633357693");
+        BigInteger q = new BigInteger("641452276181854641108656711212426007392032535624286593352297230739655033308758795291525780661276052003446415402951276859305010843331485955731317776341");
+        BigInteger n = p.multiply(q);
+     
+
+        BigInteger pMinus1 = p.subtract(BigInteger.ONE);
+        BigInteger qMinus2 = q.subtract(BigInteger.ONE);
+
+        BigInteger pi = pMinus1.multiply(qMinus2);
+
+        BigInteger e=new BigInteger("2");
+
+        while (!pi.gcd(e).equals(BigInteger.ONE)) {
+            e = e.add(BigInteger.ONE);
+        }
+
+        BigInteger d = e.modInverse(pi);
+
+
+        String message = "123";
+
+        BigInteger newmessage = new BigInteger(message);
+
+        BigInteger e_message = newmessage.modPow(e, n);
+
+        System.out.println(e_message);
+
+        BigInteger d_message = e_message.modPow(d, n);
+
+        System.out.println(d_message);
+
+
+        System.out.println(n);
+
+
+    
+
+    }  
+}
